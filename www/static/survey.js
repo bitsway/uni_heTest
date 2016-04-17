@@ -10,7 +10,8 @@
 //var apipath_image = 'http://127.0.0.1:8000/unilever/';
 
 
-var apipath='http://e3.businesssolutionapps.com/unilever/syncmobile_schedule_new/';
+//var apipath='http://e3.businesssolutionapps.com/unilever/syncmobile_schedule_new/';
+var apipath='http://e3.businesssolutionapps.com/unilever/syncmobile_schedule/';
 var apipath_image = 'http://e3.businesssolutionapps.com/unilever/';
 
  
