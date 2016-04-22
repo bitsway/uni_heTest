@@ -3371,10 +3371,10 @@ function check_step() {
 //File upload \
 
 function uploadPhoto(imageURI, imageName) {
-   	
+  alert (imageURI) 	
   var options = new FileUploadOptions();
   options.fileKey="upload";
-  alert (imageURI)
+  
   options.fileName=imageName;
   options.mimeType="image/jpeg";
 		
@@ -3916,6 +3916,7 @@ function submi_saved_req(i){
 
 function saved_image_upload(){
 	//Fdisplay=====================
+	localStorage.step_flag=1
 	if (typeof localStorage.fdisplay_data_ready === "undefined") {
 		localStorage.fdisplay_data_ready = "_";
 	}
@@ -3951,6 +3952,7 @@ function saved_image_upload(){
 	//=============================
 	
 	//==============QPDS====
+	localStorage.step_flag=2
 	if (typeof localStorage.qpds_data_ready === "undefined") {
 		localStorage.qpds_data_ready ="_";
 	}
@@ -3984,6 +3986,7 @@ function saved_image_upload(){
 	}//end if
 	
 	//================NPD=========
+	localStorage.step_flag=3
 	if (typeof localStorage.npd_data_ready === "undefined") {
 		localStorage.npd_data_ready ="_";
 	}
@@ -4009,6 +4012,7 @@ function saved_image_upload(){
 	}//end if
 	
 	//===================Gift=========
+	localStorage.step_flag=4
 	var gift_data =  localStorage.gift_data_ready.replace("rdrd","");
 	var gift_array =  gift_data.split('fdfd');
 	var image_name = gift_array[0];
@@ -4025,6 +4029,7 @@ function saved_image_upload(){
 			$("#submit_data").html("Gift Image Not Available");
 	}
 	//=====================Place
+	localStorage.step_flag=5
 	var place_data =  localStorage.place_data_ready.replace("rdrd","");
 	var place_array =  place_data.split('fdfd');
 	
@@ -4048,6 +4053,7 @@ function saved_image_upload(){
 	}
 	
 	//===================Shop============
+	localStorage.step_flag=6
 	var shop_data =  localStorage.shop_data_ready.replace("rdrd","");
 	var shop_array =  shop_data.split('fdfd');
 	var image_name = shop_array[0];
