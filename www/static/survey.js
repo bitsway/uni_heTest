@@ -3943,8 +3943,8 @@ function saved_image_upload(){
 			alert ("fd: "+fdSLfdisplay_image_path)
 			alert ("fd_Before: "+fdSLfdisplay_image_path_before)
 			if (fdSLfdisplay_image_path.length >10){
-					//uploadPhoto(fdSLfdisplay_image_path, image_name);
-					//uploadPhoto(fdSLfdisplay_image_path_before, image_name_before);
+					uploadPhoto(fdSLfdisplay_image_path, image_name);
+					uploadPhoto(fdSLfdisplay_image_path_before, image_name_before);
 			} //end if
 		} // end for
 	}//end if
@@ -3975,7 +3975,7 @@ function saved_image_upload(){
 
 			alert ("QPDS: "+qpdsImg_path)
 			if (qpdsImg_path.length >10){
-				//uploadPhoto(qpdsImg_path, image_name);
+				uploadPhoto(qpdsImg_path, image_name);
 				$("#submit_data").html("");		
 				
 				}
@@ -4001,7 +4001,7 @@ function saved_image_upload(){
 			
  			alert ("Npd: "+npd_image_div_path)
 			if (npd_image_div_path.length >10){
-				//uploadPhoto(npd_image_div_path, npd_image_name_hidden);
+				uploadPhoto(npd_image_div_path, npd_image_name_hidden);
 				$("#submit_data").html("");		
 				
 				}
@@ -4022,7 +4022,7 @@ function saved_image_upload(){
 
 	alert ("Gift: "+gift_image_path)
 	if (gift_image_path.length >10){
-		//uploadPhoto(gift_image_path, image_name);
+		uploadPhoto(gift_image_path, image_name);
 		$("#submit_data").html("");
 
 	} else {
@@ -4043,7 +4043,7 @@ function saved_image_upload(){
 	
 	alert ("Place: "+place_image_path)
 	if (place_image_path.length >10){
-				//uploadPhoto(place_image_path, image_name);
+				uploadPhoto(place_image_path, image_name);
 				$("#submit_data").html("");
 	} else {
 
@@ -4061,7 +4061,7 @@ function saved_image_upload(){
 
 	alert ("Shop: "+shop_image_path)
 	if (shop_image_path.length >10){
-				//uploadPhoto(shop_image_path, image_name);
+				uploadPhoto(shop_image_path, image_name);
 				$("#submit_data").html("");
 	} else {
 
