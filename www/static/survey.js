@@ -3828,7 +3828,7 @@ function submi_saved_req(i){
 //	$.mobile.navigate(url);
 //	locatio.reload();
 	
-	//$("#savedVisitRecordError").html(url_submit);
+	$("#savedVisitRecordError").html(url_submit);
 	$.ajax({
 			type: 'POST',
 			url: url_submit,
