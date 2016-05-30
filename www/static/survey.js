@@ -3788,9 +3788,9 @@ function submi_saved_req(i){
 	localStorage.fdisplayTotal = fdisplayTotal
 	localStorage.qpdsSlabTotal = qpdsSlabTotal
 	
-	visitDate=submit_dataList[10].replace('visitDate=','')
-	startTime=submit_dataList[10].replace('startTime=','')
-	endTime=submit_dataList[10].replace('endTime=','')
+	var visitDate=submit_dataList[10].replace('visitDate=','')
+	var startTime=submit_dataList[10].replace('startTime=','')
+	var endTime=submit_dataList[10].replace('endTime=','')
 	
 	
 	
@@ -3828,7 +3828,7 @@ function submi_saved_req(i){
 //	$.mobile.navigate(url);
 //	locatio.reload();
 	
-	$("#savedVisitRecordError").html(url_submit);
+	//$("#savedVisitRecordError").html(url_submit);
 	$.ajax({
 			type: 'POST',
 			url: url_submit,
