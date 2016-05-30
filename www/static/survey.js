@@ -3835,12 +3835,12 @@ function submi_saved_req(i){
 			type: 'POST',
 			url: url_submit,
 			 success: function(result) {	
-					
+					alert (result)
 					if (result==''){
 						alert ('Sorry Network not available');
 					}
 					else{
-						//alert (result)
+						alert ('1')
 						if (result!='SUCCESS'){
 							$("#savedVisitRecordError").html(result);
 						}
@@ -3858,7 +3858,7 @@ function submi_saved_req(i){
 //							$("#outletString").append(localStorage.outletString).trigger('create');
 							
 							
-							
+							alert ('2')
 							$("#savedVisitRecordError").html("Data Synced Successfully");
 							$("#submit_data").html('');
 							localStorage.step_flag=0;
@@ -3892,7 +3892,7 @@ function submi_saved_req(i){
 							
 							
 							
-							
+							alert ('3')
 							
 							savedVisit();
 							
