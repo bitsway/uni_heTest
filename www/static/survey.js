@@ -3759,6 +3759,9 @@ function submi_saved_req(i){
 	
 	var channel=submit_dataList[9].replace('channel=','')
 	var latlong=submit_dataList[10].replace('latlong=','')
+	var visitDate=submit_dataList[11].replace('visitDate=','')
+	var startTime=submit_dataList[12].replace('startTime=','')
+	var endTime=submit_dataList[13].replace('endTime=','')
 	var giftImage=submit_dataList[14].replace('giftImage=','')
 	var mhskus_data=submit_dataList[15].replace('mhskus_data=','')
 	var npd_data=submit_dataList[16].replace('npd_data=','')
@@ -3788,9 +3791,7 @@ function submi_saved_req(i){
 	localStorage.fdisplayTotal = fdisplayTotal
 	localStorage.qpdsSlabTotal = qpdsSlabTotal
 	
-	var visitDate=submit_dataList[10].replace('visitDate=','')
-	var startTime=submit_dataList[10].replace('startTime=','')
-	var endTime=submit_dataList[10].replace('endTime=','')
+	
 	
 	
 	
@@ -3801,11 +3802,10 @@ function submi_saved_req(i){
 	
 	//alert (apipath+'syncSubmitData?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&route='+selectedRoute+'&routeEx='+routeException+'&outlet='+selectedOutlet+'&scheduleDate='+ selected_date+'&outletEx='+outletException+'&channel='+outletChannel+'&latlong='+latlong+'&visitDate='+visitDate+'&startTime='+startTime+'&endTime='+endTime+'&giftImage='+giftImage+'&mhskus_data='+localStorage.mhskus_data_ready+'&npd_data='+localStorage.npd_data_ready+'&fdisplay_data='+fdisplay_data+'&qpds_data='+qpds_data+'&gift_data='+localStorage.gift_data_ready+'&place_data='+localStorage.place_data_ready+'&shop_data='+localStorage.shop_data_ready)
 
-	alert ('0')
+	
 	var url_submit = apipath+'syncSubmitData?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&route='+localStorage.selectedRoute+'&routeEx='+localStorage.routeException+'&outlet='+localStorage.selectedOutlet+'&scheduleDate='+ localStorage.selected_date +'&outletEx='+localStorage.outletException+'&channel='+localStorage.outletChannel+'&latlong='+latlong+'&visitDate='+visitDate+'&startTime='+startTime+'&endTime='+endTime+'&giftImage='+giftImage+'&mhskus_data='+localStorage.mhskus_data_ready+'&npd_data='+localStorage.npd_data_ready+'&fdisplay_data='+fdisplay_data+'&qpds_data='+qpds_data+'&gift_data='+localStorage.gift_data_ready+'&place_data='+localStorage.place_data_ready+'&shop_data='+localStorage.shop_data_ready+'&key_data='+localStorage.key_data_ready
 	
-	alert ('01')
-		   //+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&route='+localStorage.selectedRoute+'&routeEx='+localStorage.routeException+'&outlet='+localStorage.selectedOutlet+'&scheduleDate='+ localStorage.selected_date +'&outletEx='+localStorage.outletException+'&channel='+localStorage.outletChannel+'&latlong='+latlong+'&visitDate='+visitDate+'&startTime='+localStorage.startTime+'&endTime='+endTime+'&giftImage='+giftImage+'&mhskus_data='+localStorage.mhskus_data_ready+'&npd_data='+localStorage.npd_data_ready+'&fdisplay_data='+fdisplay_data+'&qpds_data='+qpds_data+'&gift_data='+localStorage.gift_data_ready+'&place_data='+localStorage.place_data_ready+'&shop_data='+localStorage.shop_data_ready)
+
 		   
 	//localStorage.selectedOutlet=selectedOutlet;				
 	//localStorage.selected_date_get=selected_date;
@@ -3828,18 +3828,18 @@ function submi_saved_req(i){
 //	var url = "#outletPage";
 //	$.mobile.navigate(url);
 //	locatio.reload();
-	alert (url_submit)
+	//alert (url_submit)
 	$("#savedVisitRecordError").html(url_submit);
 	$.ajax({
 			type: 'POST',
 			url: url_submit,
 			 success: function(result) {	
-					alert (result)
+					//alert (result)
 					if (result==''){
 						alert ('Sorry Network not available');
 					}
 					else{
-						alert ('1')
+						///alert ('1')
 						if (result!='SUCCESS'){
 							$("#savedVisitRecordError").html(result);
 						}
@@ -3857,7 +3857,7 @@ function submi_saved_req(i){
 //							$("#outletString").append(localStorage.outletString).trigger('create');
 							
 							
-							alert ('2')
+							//alert ('2')
 							$("#savedVisitRecordError").html("Data Synced Successfully");
 							$("#submit_data").html('');
 							localStorage.step_flag=0;
@@ -3882,16 +3882,16 @@ function submi_saved_req(i){
 //							localStorage.qpdsSlabTotal=0;
 //							
 //							//alert ('savedsaved'+submit_data)
-//							var saved_req=localStorage.saved_req
-//							
-//							var s_data=saved_req.split('<savedsaved>')[i]
-//							
-//							saved_req=saved_req.replace('<savedsaved>'+s_data,'')
-//							localStorage.saved_req=saved_req
+							var saved_req=localStorage.saved_req
+							
+							var s_data=saved_req.split('<savedsaved>')[i]
+							
+							saved_req=saved_req.replace('<savedsaved>'+s_data,'')
+							localStorage.saved_req=saved_req
 							
 							
 							
-							alert ('3')
+							//alert ('3')
 							
 							savedVisit();
 							
@@ -3942,8 +3942,8 @@ function saved_image_upload(){
 			
 			var image_name_before=head_s_array[4];
 			var fdSLfdisplay_image_path_before=head_s_array[5].replace("rdrd","");
-			alert ("fd: "+fdSLfdisplay_image_path)
-			alert ("fd_Before: "+fdSLfdisplay_image_path_before)
+			//alert ("fd: "+fdSLfdisplay_image_path)
+			//alert ("fd_Before: "+fdSLfdisplay_image_path_before)
 			if (fdSLfdisplay_image_path.length >10){
 					uploadPhoto(fdSLfdisplay_image_path, image_name);
 					uploadPhoto(fdSLfdisplay_image_path_before, image_name_before);
@@ -3975,7 +3975,7 @@ function saved_image_upload(){
 			var image_name=head_s_array[2];
 			var qpdsImg_path=head_s_array[3];
 
-			alert ("QPDS: "+qpdsImg_path)
+			//alert ("QPDS: "+qpdsImg_path)
 			if (qpdsImg_path.length >10){
 				uploadPhoto(qpdsImg_path, image_name);
 				$("#submit_data").html("");		
@@ -4001,7 +4001,7 @@ function saved_image_upload(){
 			var npd_image_div_path=npd_single_array[3];
 			var npd_image_name_hidden=npd_single_array[4];
 			
- 			alert ("Npd: "+npd_image_div_path)
+ 			//alert ("Npd: "+npd_image_div_path)
 			if (npd_image_div_path.length >10){
 				uploadPhoto(npd_image_div_path, npd_image_name_hidden);
 				$("#submit_data").html("");		
@@ -4022,7 +4022,7 @@ function saved_image_upload(){
 	
 	//var gift_month = gift_array[2];
 
-	alert ("Gift: "+gift_image_path)
+	//alert ("Gift: "+gift_image_path)
 	if (gift_image_path.length >10){
 		uploadPhoto(gift_image_path, image_name);
 		$("#submit_data").html("");
@@ -4043,7 +4043,7 @@ function saved_image_upload(){
 	//var is_eyeLevel_actual= place_array[4];
 	//var is_clearlyVis_noObs_actual= place_array[5];
 	
-	alert ("Place: "+place_image_path)
+	//alert ("Place: "+place_image_path)
 	if (place_image_path.length >10){
 				uploadPhoto(place_image_path, image_name);
 				$("#submit_data").html("");
@@ -4061,7 +4061,7 @@ function saved_image_upload(){
 	var image_name = shop_array[0];
 	var shop_image_path = shop_array[1];
 
-	alert ("Shop: "+shop_image_path)
+	//alert ("Shop: "+shop_image_path)
 	if (shop_image_path.length >10){
 				uploadPhoto(shop_image_path, image_name);
 				$("#submit_data").html("");
@@ -4075,305 +4075,3 @@ function saved_image_upload(){
 }
 
 
-//function upload_fd_saved(){
-//	if (typeof localStorage.fdisplay_data_ready === "undefined") {
-//		localStorage.fdisplay_data_ready = "_";
-//	}
-//	//===========================
-//	if (localStorage.fdisplay_data_ready.length > 10){	
-//		var fdisplay_array =  localStorage.fdisplay_data_ready.split('headend');
-//		var fdisplay_head=fdisplay_array[0].replace("headstart","");
-//		var fdisplay_detail=fdisplay_array[1];
-//		var fdisplay_head_array =  fdisplay_head.split('rdrd');
-//		localStorage.fdisplaySlabTotal=fdisplay_head_array.length
-//		
-//		//alert (localStorage.fdisplaySlabTotal)
-//		for (var i=0; i < localStorage.fdisplaySlabTotal-1; i++){
-//			var head_s_array=fdisplay_head_array[i].split('fdfd');
-//			//alert (head_s_array);
-//			var slabfdisplay =head_s_array[0];
-//			var fdisplayTotal=head_s_array[1];
-//			var fdisplayImg=head_s_array[2];
-//			var fdisplayImg_path=head_s_array[3];
-//			
-//			var fdisplayImg_before=head_s_array[4];
-//			
-//			var fdisplayImg_path_before=head_s_array[5].replace("rdrd","");
-//			
-//			
-//			$("#fdSL_image_div_hidden_"+i.toString()).val(fdisplayImg_path);
-//			$("#fdSL_image_name_hidden_"+i.toString()).val(fdisplayImg);
-//			
-//			
-//			$("#fdSL_image_div_hidden_"+i.toString()+"_before").val(fdisplayImg_path_before); 
-//			$("#fdSL_image_name_hidden_"+i.toString()+"_before").val(fdisplayImg_before);
-//				
-//			
-//			
-//			var image = document.getElementById('fdSL_image_div_'+i.toString());
-//			image.src = fdisplayImg_path;
-//			//alert (fdisplayImg_before)
-//			var image_before = document.getElementById('fdSL_image_div_'+i.toString()+"_before");
-//			image_before.src = fdisplayImg_path_before;
-//			
-//			
-//			//==============
-//			
-//			
-//			
-//			var image_name=fdisplayImg_path;
-//			var fdSLfdisplay_image_path=fdisplayImg;
-//				
-//			var image_name_before=fdisplayImg_path_before;
-//			var fdSLfdisplay_image_path_before=fdisplayImg_before;
-//				
-//				
-//				//alert (image_name);
-//				//alert (image_name_before);
-//				alert (fdSLfdisplay_image_path)
-//				alert (fdisplayImg_path_before)
-//				if (image_name.length >10){
-//					uploadPhoto(fdSLfdisplay_image_path, image_name);
-//					uploadPhoto(fdSLfdisplay_image_path_before, image_name_before);
-//					localStorage.fddataSubmit=1;
-//					//if upload is successfull then "file_upload_error" will be 0 , if error 1
-//				} else {
-//					localStorage.fddataSubmit=1;
-//					$("#submit_data").html("Fixed Display Image Not Available");
-//			}
-//				
-//		
-//			
-//			
-//		}//endfor
-//	
-//	}
-//	
-//	//===============================
-//	
-//	
-//	
-//	
-//	//$( "#sub_fd_button").hide();
-//	//$("#submit_data").html('<img height="40px" width="40px" src="loading.gif">');
-//	//$("#submit_data").html('localStorage.fdisplay_data_ready:' + localStorage.fdisplay_data_ready);
-//	
-//	
-//	//$("#savedVisitRecordError").text(localStorage.fdisplay_data_ready);
-//	//if (typeof localStorage.fdisplay_data_ready === "undefined") {
-////		localStorage.fdisplay_data_ready = "_";
-////	}
-////	if (localStorage.fdisplay_data_ready.length > 10){	
-////		for (var i=0; i < localStorage.fdisplaySlabTotal-1; i++){
-////			var image_name=$("#fdSL_image_name_hidden_"+i.toString()).val();
-////			var fdSLfdisplay_image_path=$("#fdSL_image_div_hidden_"+i.toString()).val();
-////			
-////			
-////			var image_name_before=$("#fdSL_image_name_hidden_"+i.toString() + "_before").val();
-////			var fdSLfdisplay_image_path_before=$("#fdSL_image_div_hidden_"+i.toString()+ "_before").val();
-////			
-////			//alert ('NN')
-////			//alert (image_name);
-////		//	alert (image_name_before);
-////			alert (fdSLfdisplay_image_path)
-////			if (image_name.length >10){
-////				uploadPhoto(fdSLfdisplay_image_path, image_name);
-////				uploadPhoto(fdSLfdisplay_image_path_before, image_name_before);
-////				localStorage.fddataSubmit=1;
-////				//if upload is successfull then "file_upload_error" will be 0 , if error 1
-////			} else {
-////			//	localStorage.fddataSubmit=1;
-////				$("#submit_data").html("Fixed Display Image Not Available");
-////		}
-//////					
-////		}//end for
-////	}
-//	upload_qpds_saved();
-//
-//}
-//
-//function upload_qpds_saved(){
-//	
-//	
-//	if (typeof localStorage.qpds_data_ready === "undefined") {
-//		localStorage.qpds_data_ready ="_";
-//	}
-// 	//localStorage.qpdsdataSubmit=1;
-//	if (localStorage.qpds_data_ready.length > 10){
-//		var qpds_array =  localStorage.qpds_data_ready.split('headend');
-//		var qpds_head=qpds_array[0].replace("headstart","");
-//		var qpds_detail=qpds_array[1];
-//		var qpds_head_array =  qpds_head.split('rdrd');
-//		localStorage.qpdsSlabTotal=qpds_head_array.length
-//		//alert (localStorage.qpdsSlabTotal)	
-//		
-//		for (var i=0; i < localStorage.qpdsSlabTotal-1; i++){
-//			var head_s_array=qpds_head_array[i].split('fdfd');
-//		//alert (head_s_array);
-//			var slabqpds =head_s_array[0];
-//			var qpdsTotal=head_s_array[1];
-//			var qpdsImg=head_s_array[2];
-//			var qpdsImg_path=head_s_array[3];
-//			
-//			$("#qpdsSL_image_div_hidden_"+i.toString()).val(qpdsImg_path);
-//			$("#qpdsSL_image_name_hidden_"+i.toString()).val(qpdsImg);
-//			
-//			//alert (qpdsImg_path)
-//			
-//			var image_name=$("#qpdsSL_image_name_hidden_"+i.toString()).val();
-//			var qpds_image_path=$("#qpdsSL_image_div_hidden_"+i.toString()).val();
-//			
-//			
-//			
-//			
-//			//var url = "#qpdsPage";
-//			//$.mobile.navigate(url);
-//			
-//			//var image_name_before=$("#qpdsSL_image_name_hidden_"+i.toString()+"_before").val();
-//			//var qpds_image_path_before=$("#qpdsSL_image_div_hidden_"+i.toString()+"_before").val();
-//			//localStorage.qpdsdataSubmit=1;
-//			alert (qpds_image_path)
-//			if (qpds_image_path.length >10){
-//				uploadPhoto(qpds_image_path, image_name);
-//				$("#submit_data").html("");		
-//				
-//				}
-//				else{
-//					$("#submit_data").html("Promotion Image Not Available");				
-//				}
-//		}//end for
-//	}//end if
-//	//else{
-////		 localStorage.qpdsdataSubmit=1;
-////	}
-//	
-//	 upload_npd_saved();
-//}
-//
-//function upload_gift_confirm_saved(){
-//	//Gift
-//	var gift_data =  localStorage.gift_data_ready.replace("rdrd","");
-//	var gift_array =  gift_data.split('fdfd');
-//
-//	var image_name = gift_array[0];
-//	var gift_image_path = gift_array[1];
-//	var gift_month = gift_array[2];
-//
-//
-//	//alert (image_name)
-//	$("#gift_image_name_hidden").val(image_name);
-//	$("#gift_image_div_hidden").val(gift_image_path);
-//	
-//	alert (gift_image_path)
-//	if (gift_image_path.length >10){
-//		uploadPhoto(gift_image_path, image_name);
-//		$("#submit_data").html("");
-//
-//	} else {
-//
-//			$("#submit_data").html("Gift Image Not Available");
-//
-//	}
-//	upload_shop_saved()
-//	
-//}
-//
-////==============upload npd
-//function upload_npd_saved(){
-//	if (typeof localStorage.npd_data_ready === "undefined") {
-//		localStorage.npd_data_ready ="_";
-//	}
-// 	
-//	if (localStorage.npd_data_ready.length > 10){
-//		var npd_array =  localStorage.npd_data_ready.split('rdrd');
-//	 	for (var i=0; i < npd_array.length-1; i++){
-//			var npd_single_array = npd_array[i].split('fdfd');	
-//			var itemQty=npd_single_array[1];
-//			var npd_image_div_path=npd_single_array[3];
-//			var npd_image_name_hidden=npd_single_array[4];
-//			
-//			//alert (npd_image_div_path);
-//			
-//			$("#npd_image_div_hidden_"+i.toString()).val(npd_image_div_path); 
-//			$("#npd_image_name_hidden_"+i.toString()).val(npd_image_name_hidden); 
-//		
-// 			alert (npd_image_div_path)
-//			if (npd_image_div_path.length >10){
-//				uploadPhoto(npd_image_div_path, npd_image_name_hidden);
-//				$("#submit_data").html("");		
-//				
-//				}
-//				else{
-//					$("#submit_data").html("Promotion Image Not Available");				
-//				}
-//		}//end for
-//	}//end if
-//	//else{
-////		 localStorage.qpdsdataSubmit=1;
-////	}
-////	
-//	
-//	upload_gift_confirm()
-//}
-////========================Place upload
-//
-//function upload_place_saved(){
-//	var place_data =  localStorage.place_data_ready.replace("rdrd","");
-//	
-//	var place_array =  place_data.split('fdfd');
-//	
-//	var image_name = place_array[0];
-//	var place_image_path = place_array[1];
-//	//var place_value = place_array[2];
-//	var is_near_inFront_actual= place_array[2];
-//	var is_beside_adjacent_actual= place_array[3];
-//	var is_eyeLevel_actual= place_array[4];
-//	var is_clearlyVis_noObs_actual= place_array[5];
-//	
-//	//alert (place_value)
-//	$("#place_image_name_hidden").val(image_name);
-//	$("#place_image_div_hidden").val(place_image_path);
-//
-//	var image_name_place=$("#place_image_name_hidden").val();
-//	var place_image_path=$("#place_image_div_hidden").val();
-//	alert (place_image_path)
-//	if (image_name_place.length >10){
-//				uploadPhoto(place_image_path, image_name_place);
-//				$("#submit_data").html("");
-//	} else {
-//
-//			$("#submit_data").html("Place Image Not Available");
-//			//$("#submit_data").html("");				
-//
-//	}
-//	
-//	
-//	buttonCheck();
-//
-//}
-//function upload_shop_saved(){
-//	var shop_data =  localStorage.shop_data_ready.replace("rdrd","");
-//	var shop_array =  shop_data.split('fdfd');
-//	var image_name = shop_array[0];
-//	var shop_image_path = shop_array[1];
-//	//alert (image_name)
-//	$("#shop_image_name_hidden").val(image_name);
-//	$("#shop_image_div_hidden").val(shop_image_path );
-//	upload_shop()
-//	//var image_name_shop=$("#shop_image_name_hidden").val();
-////	var shop_image_path=$("#shop_image_div_hidden").val();
-////	alert (shop_image_path)
-////	if (shop_image_path.length >10){
-////				uploadPhoto(shop_image_path, image_name_shop);
-////				$("#submit_data").html("");
-////				
-////	} else {
-////
-////			$("#submit_data").html("Shop Image Not Available");
-////			//$("#submit_data").html("");				
-////
-////	}
-//	upload_place_saved()
-//	//buttonCheck();
-//
-//}
