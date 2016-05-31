@@ -2516,7 +2516,6 @@ function place_ready_data() {
 	localStorage.place_data_ready=place_data
 	
 	place_page_set();
-	
 	if ((image_name.length > 10)){
 	//if ((place_image_path.length > 10)){
 		var url = "#keyTaskPage";
