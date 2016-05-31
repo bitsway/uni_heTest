@@ -3870,6 +3870,8 @@ function submi_saved_req(i){
 							
 							savedVisit();
 							
+							
+							
 							location.reload();
 							// $("#savedVisitRecordError").html("Please try later");
 							
