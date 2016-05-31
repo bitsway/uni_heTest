@@ -3681,7 +3681,8 @@ function munu_page_check(){
 
 
 function savedVisit(){
-	
+	$("#login_image_saved").hide();
+	$("#savedVisitRecord").show();
 	var saved_req=localStorage.saved_req;
 	var savedList=saved_req.split('<savedsaved>')
 	$("#savedVisitRecord").text(localStorage.saved_req);
@@ -3722,7 +3723,8 @@ function savedVisit(){
 }
 
 function submi_saved_req(i){
-	
+	$("#login_image_saved").show();
+	$("#savedVisitRecord").hide();
 	var submit_data=$("#saved_text_"+i).val();
 	
 	submit_dataList=submit_data.split('&')
@@ -3883,6 +3885,8 @@ function submi_saved_req(i){
 					
 				  }, 
 			  error: function(result) {
+				    $("#login_image_saved").show();
+					$("#savedVisitRecord").hide();
 				  $("#savedVisitRecordError").html("Please try later");
 			  }
 		  });//end ajax
