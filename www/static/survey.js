@@ -3805,7 +3805,7 @@ function submi_saved_req(i){
 //	$.mobile.navigate(url);
 //	locatio.reload();
 	
-	$("#savedVisitRecordError").html(url_submit);
+	//$("#savedVisitRecordError").html(url_submit);
 	$.ajax({
 			type: 'POST',
 			url: url_submit,
@@ -3871,7 +3871,7 @@ function submi_saved_req(i){
 							savedVisit();
 							
 							location.reload();
-							 $("#savedVisitRecordError").html("Please try later");
+							// $("#savedVisitRecordError").html("Please try later");
 							
 						}
 						
