@@ -1529,7 +1529,7 @@ function syncOutlet() {
 						'<td> <a data-role="button" href="#" onClick="get_pic_npd('+i_text+')" >Take Picture </a></td></tr></table>'+ 
 						'<img id="'+npd_image_div+'" height="100px" width="100px"  src="" alt="NPDPic" />'+
 						'<input type="hidden" name="'+ npd_image_div_hidden +'" id="'+ npd_image_div_hidden +'" value="" >'+
-						'<input type="hidden" name="'+ npd_image_name_hidden +'" id="'+ npd_image_name_hidden +'" value="" ><br>------------------------------------------------------------------------'
+						'<input type="hidden" name="'+ npd_image_name_hidden +'" id="'+ npd_image_name_hidden +'" value="" ><br>--------------------------------------------------------------------'
 						
 
 				
