@@ -504,9 +504,9 @@ function check_user() {
 								localStorage.saved_visit=resultArray[3];
 								
 								
-								if (localStorage.saved_visit=='YES'){
-								$("#saved_button").html('<a data-role="button" onClick="savedVisit()" ><img src="saved_visit.png"></a>')
-								}
+								//if (localStorage.saved_visit=='YES'){
+								//$("#saved_button").html('<a data-role="button" onClick="savedVisit()" ><img src="saved_visit.png"></a>')
+								//}
 								
 								
 								
