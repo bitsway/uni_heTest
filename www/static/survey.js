@@ -3722,6 +3722,7 @@ function savedVisit(){
 		
 	}
 	
+	$("#savedVisitRecordError").text('');
 	var url = "#savedVisitPage";
 	$.mobile.navigate(url);
 }
@@ -3824,8 +3825,8 @@ function submi_saved_req(i){
 					else{
 						///alert ('1')
 						if (result!='SUCCESS'){
-							 $("#login_image_saved").show();
-							 $("#savedVisitRecord").hide();
+							 $("#login_image_saved").hide();
+							 $("#savedVisitRecord").show();
 						     $("#savedVisitRecordError").html("Please try later");
 						}
 						if (result=='SUCCESS'){
@@ -3891,9 +3892,9 @@ function submi_saved_req(i){
 					
 				  }, 
 			  error: function(result) {
-				    $("#login_image_saved").show();
-					$("#savedVisitRecord").hide();
-				  $("#savedVisitRecordError").html("Please try later");
+				     $("#login_image_saved").hide();
+					 $("#savedVisitRecord").show();
+					 $("#savedVisitRecordError").html("Please try later");
 			  }
 		  });//end ajax
 
