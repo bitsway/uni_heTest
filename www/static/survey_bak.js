@@ -591,7 +591,7 @@ function check_user() {
 								
 								var today_get = weekday[d.getDay()];
 								
-								//alert (today_get);
+								
 								var alowSl=''
 								for (var rs=0; rs < routeSingleTtotal-1; rs++){
 									routeSArray = routeSingleArray[rs].split('fdfd');
@@ -602,7 +602,6 @@ function check_user() {
 									var r_sday=routeSArray[2];
 									var r_sdaySl=routeSArray[3];
 									
-									//alert (r_sday);
 									
 									if (today_get=='Saturday'){
 										r_sdaySl=1;
@@ -625,7 +624,7 @@ function check_user() {
 									if (today_get=='Friday'){
 										r_sdaySl=7;
 									}
-									//alert (r_sdaySl);
+									
 									if (r_sday==today_get){	
 											if (r_sdaySl==1){
 												alowSl=	'7,6,5,1'
@@ -652,24 +651,22 @@ function check_user() {
 									}
 									
 								}
-								//alert (alowSl);
+								
 								
                 
 								for (var r=0; r < routeSingleTtotal-1; r++){
 									routeArray = routeSingleArray[r].split('fdfd');
 									routeID=routeArray[0];
 									routeName=routeArray[1];	
-									//alert (routeID);
+									
 									r_day = routeID.split('|')[2];
-									//alert (routeSingleArray[r])
-									//alert (r_sday+"         "+today_get)
+									
 									if (r_day==today_get){																			
 									  routeStringShow=routeStringShow+'<label style="background:#81C0C0"><input type="radio" name="RadioRoute"  value="'+routeID+'" id="RadioGroup1_0"> '+routeName+'</label>'
-									  //alert (alowSl)
+									  
 									}
 									else{
-										//alert (routeID);
-										//alert (r_day);
+										
 										if (r_day=='Saturday'){
 											r_sdaySl='1';
 										}
@@ -783,7 +780,7 @@ function check_route() {
 								
 		var today_get = weekday[d.getDay()];
 								
-		//alert (today_get);
+		
 		var alowSl=''
 		for (var rs=0; rs < routeSingleTtotal-1; rs++){
 			routeSArray = routeSingleArray[rs].split('fdfd');
@@ -794,7 +791,7 @@ function check_route() {
 			var r_sday=routeSArray[2];
 			var r_sdaySl=routeSArray[3];
 			
-			//alert (r_sday);
+			
 			
 			if (today_get=='Saturday'){
 				r_sdaySl=1;
@@ -817,7 +814,7 @@ function check_route() {
 			if (today_get=='Friday'){
 				r_sdaySl=7;
 			}
-			//alert (r_sdaySl);
+			
 			if (r_sday==today_get){	
 					if (r_sdaySl==1){
 						alowSl=	'7,6,5,1'
@@ -844,24 +841,22 @@ function check_route() {
 			}
 			
 		}
-		//alert (alowSl);
+		
 		
 
 		for (var r=0; r < routeSingleTtotal-1; r++){
 			routeArray = routeSingleArray[r].split('fdfd');
 			routeID=routeArray[0];
 			routeName=routeArray[1];	
-			//alert (routeID);
+			
 			r_day = routeID.split('|')[2];
-			//alert (routeSingleArray[r])
-			//alert (r_sday+"         "+today_get)
+			
 			if (r_day==today_get){																			
 			  routeStringShow=routeStringShow+'<label style="background:#81C0C0"><input type="radio" name="RadioRoute"  value="'+routeID+'" id="RadioGroup1_0"> '+routeName+'</label>'
-			  //alert (alowSl)
+			  
 			}
 			else{
-				//alert (routeID);
-				//alert (r_day);
+				
 				if (r_day=='Saturday'){
 					r_sdaySl='1';
 				}
@@ -883,9 +878,7 @@ function check_route() {
 				if (r_day=='Friday'){
 					r_sdaySl='7';
 				}
-			 //alert (alowSl);
-//									 alert (r_sdaySl);
-//									 alert (alowSl.indexOf(r_sdaySl));
+			
 			 
 				 if (alowSl.indexOf(r_sdaySl) != -1){
 					 routeStringShow=routeStringShow+'<label ><input type="radio"  name="RadioRoute"  value="'+routeID+'" id="RadioGroup1_0"> '+routeName+'</label>'
@@ -2870,7 +2863,7 @@ function submit_data() {
 								 $.mobile.navigate(url);	
 							 }
 							 else{
-								  $("#submit_data").html("Saved Request. Please try later");
+								  $("#submit_data").html("Saveed Request. Please try later");
 								  
 								  
 								  localStorage.outletString=check_outlet.replace('<input type="radio" name="RadioOutlet" value="'+localStorage.selectedOutlet+'rdrd'+localStorage.selected_date_get+'">','<input type="radio" name="RadioOutlet" value="'+localStorage.selectedOutlet+'rdrd'+localStorage.selected_date_get+'" disabled="True">');
@@ -3824,9 +3817,7 @@ function submi_saved_req(i){
 					else{
 						///alert ('1')
 						if (result!='SUCCESS'){
-							 $("#login_image_saved").show();
-							 $("#savedVisitRecord").hide();
-						     $("#savedVisitRecordError").html("Please try later");
+							$("#savedVisitRecordError").html(result);
 						}
 						if (result=='SUCCESS'){
 
