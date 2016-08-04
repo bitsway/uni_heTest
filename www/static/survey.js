@@ -30,7 +30,9 @@ qpds_ready_data
 npd_ready_data
 mhskus_ready_data
 gift_ready_data
-place_ready_data*/
+place_ready_data
+cancel_outlet_Back
+*/
 
 
 
@@ -296,7 +298,7 @@ function cancel_outlet_Back(){
 	var imagePath=$("#shop_image_div_hidden").val();
 	var latitude=$("#lat").val();
 	var longitude=$("#long").val();
-	
+	//alert (imageName.length )
 	
 	if (cancel_reason==""){
 		$("#c_reason").html('Please Select Reason');
@@ -308,6 +310,7 @@ function cancel_outlet_Back(){
 			$.mobile.navigate(url);
 		}
 		else{
+			//if (imageName.length == 0){
 			if (imagePath.length < 10){
 				$("#c_reason").html('Please Take Picture');
 				}
@@ -1996,8 +1999,8 @@ function fdisplay_before_page_next() {
 		var fdSLfdisplay_image_path_before=$("#fdSL_image_div_hidden_"+i.toString()+"_before").val(); 
 		var fdSLfdisplay_image_name=$("#fdSL_image_name_hidden_"+i.toString()+"_before").val(); 
 		
-		if (fdSLfdisplay_image_name.length<10){
-		//if (fdSLfdisplay_image_path_before.length<10){
+		//if (fdSLfdisplay_image_name.length<10){
+		if (fdSLfdisplay_image_path_before.length<10){
 			image_flag=1
 		}
 
@@ -2521,8 +2524,8 @@ function place_ready_data() {
 	localStorage.place_data_ready=place_data
 	
 	place_page_set();
-	if ((image_name.length > 10)){
-	//if ((place_image_path.length > 10)){
+	//if ((image_name.length > 10)){
+	if ((place_image_path.length > 10)){
 		var url = "#keyTaskPage";
 		$.mobile.navigate(url);
 	//	$('#place_show').find('input, textarea, button, select').attr('disabled','disabled');
