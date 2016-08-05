@@ -241,6 +241,7 @@ function cancel_outlet_next(){
 	$.mobile.navigate(url);
 	location.reload();
 	
+	
 }
 function cancel_outlet_next_next(){
 	$("#next_option").show();
@@ -293,6 +294,8 @@ function shop_page_set() {
 
 
 function cancel_outlet_Back(){
+	$("#cancelButton").hide();
+	$("#login_image_cancel").show();
 	var cancel_reason=$("#cancel_cause").val();
 	var imageName=$("#shop_image_name_hidden").val();
 	var imagePath=$("#shop_image_div_hidden").val();
@@ -302,10 +305,14 @@ function cancel_outlet_Back(){
 	
 	if (cancel_reason==""){
 		$("#c_reason").html('Please Select Reason');
+		$("#cancelButton").show();
+		$("#login_image_cancel").hide();
 	}
 	else{
 		if (cancel_reason=="Will try later"){
 			cancel_outlet();
+			$("#cancelButton").show();
+			$("#login_image_cancel").hide();
 			var url = "#outletPage";
 			$.mobile.navigate(url);
 		}
@@ -313,6 +320,8 @@ function cancel_outlet_Back(){
 			//if (imageName.length == 0){
 			if (imagePath.length < 10){
 				$("#c_reason").html('Please Take Picture');
+				$("#cancelButton").show();
+				$("#login_image_cancel").hide();
 				}
 			else{
 	//				//Submit to visit as cancel
@@ -323,10 +332,10 @@ function cancel_outlet_Back(){
 						 type: 'POST',
 						 url: apipath+'cancel_outlet?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&selectedRoute='+localStorage.selectedRoute+'&routeEx='+localStorage.routeException+'&outlet='+outletID+'&outletEx='+localStorage.outletException+'&cancel_reason='+cancel_reason+'&imageName='+imageName+'&imagePath='+imagePath+'&latitude='+latitude+'&longitude='+longitude,
 						 success: function(result) {
-							 
+							 	$("#cancelButton").show();
+								$("#login_image_cancel").hide();
 								if (result==''){
-									$("#loginButton").show();
-									$("#login_image").hide();
+									
 									alert ('Sorry Network not available');
 								}
 								else{
@@ -347,8 +356,8 @@ function cancel_outlet_Back(){
 						  error: function(result) {
 							 // $("#error_login").html(apipath+'check_user?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode);
 							  $("#error_login").html('Network timeout. Please ensure you have good network signal and working Internet.');
-							  $("#loginButton").show();
-							  $("#login_image").hide();
+							  $("#cancelButton").show();
+							  $("#login_image_cancel").hide();
 							  var url = "#login";
 							  $.mobile.navigate(url);	
 							  
@@ -357,6 +366,8 @@ function cancel_outlet_Back(){
 					upload_shop();
 					$("#shop_image_name_hidden").val("");
 					$("#shop_image_div_hidden").val("");
+					$("#cancelButton").show();
+					$("#login_image_cancel").hide();
 			} // End else
 	
 		} //End else
