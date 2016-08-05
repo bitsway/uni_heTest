@@ -2726,7 +2726,47 @@ function submit_data() {
 		
 	//	location.reload()
 	}
+	else if ((localStorage.synced=='YES') & (localStorage.selectedOutlet=="")){
+		cancel_outlet();
+		
+		localStorage.show_cancel=0;
+					
+		localStorage.m_new_string="";
+		localStorage.m_new="";
+		localStorage.selectedOutlet="";
+		localStorage.outletExStringShow="";
+		localStorage.outletException="";
+		localStorage.outletChanne="";
+		localStorage.outletNameID="";
+		localStorage.mhskusTotal="";
+		
+		localStorage.npdTotal="";
+		localStorage.fdisplaySlabTotal="";
+		localStorage.fdisplayTotal="";
+		localStorage.qpdsSlabTotal="";
+		
+		localStorage.qpdsTotal="";
+		localStorage.giftTotal="";
+		localStorage.marchadizingTotal="";
+		localStorage.mhskus_data_ready="";
+		localStorage.npd_data_ready="";
+		localStorage.fdisplay_data_ready="";
+		localStorage.qpds_data_ready="";
+		localStorage.gift_data_ready="";
+		localStorage.mar_data_ready="";
+		localStorage.key_data_ready="";
+		
+
+		localStorage.mar_distrib_data=""
+		localStorage.merchandisingDistribStr=""
+		localStorage.mar_distrib_stock=""
+		
+		
 	
+		//check_route();
+		var url = "#outletPage";
+		$.mobile.navigate(url);
+	}
 	else{
 			
 			$("#sub_button").hide();
@@ -2862,7 +2902,7 @@ function submit_data() {
 										var url = "#outletPage";
 										$.mobile.navigate(url);
 										//location.reload();
-										
+										localStorage.dataSubmit=0
 										
 									}
 									
@@ -3569,7 +3609,7 @@ function buttonCheck(){
 //		$("#long").val(0);
 	
 	}
-	if (localStorage.latlongSubmit==0){
+	if ((localStorage.latlongSubmit==0) & (localStorage.dataSubmit==0)){
 		
 		
 		$("#location_button").show();
