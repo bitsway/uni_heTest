@@ -628,8 +628,9 @@ function check_user() {
 									if (today_get=='Friday'){
 										r_sdaySl=7;
 									}
-									//alert (r_sdaySl);
-									if (r_sday==today_get){	
+									//alert (today_get);
+									//if (r_sday==today_get){	
+											//alert ('adasdaf')
 											if (r_sdaySl==1){
 												alowSl=	'7,6,5,1'
 											}
@@ -654,7 +655,7 @@ function check_user() {
 											
 									}
 									
-								}
+								//}
 								//alert (alowSl);
 								
                 
@@ -695,7 +696,7 @@ function check_user() {
 											r_sdaySl='7';
 										}
 									
-									 
+									     //alert (r_sdaySl)
 										 if (alowSl.indexOf(r_sdaySl) != -1){
 											 routeStringShow=routeStringShow+'<label ><input type="radio"  name="RadioRoute"  value="'+routeID+'" id="RadioGroup1_0"> '+routeName+'</label>'
 										 }
@@ -821,7 +822,7 @@ function check_route() {
 				r_sdaySl=7;
 			}
 			//alert (r_sdaySl);
-			if (r_sday==today_get){	
+			//if (r_sday==today_get){	
 					if (r_sdaySl==1){
 						alowSl=	'7,6,5,1'
 					}
@@ -846,7 +847,7 @@ function check_route() {
 					
 			}
 			
-		}
+	//	}
 		//alert (alowSl);
 		
 
