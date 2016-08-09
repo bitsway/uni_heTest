@@ -3784,7 +3784,7 @@ function savedVisit(){
 
 function submi_saved_req(i){
 	if (localStorage.selectedOutlet!=''){
-		 $("#savedVisitRecordError").html("Please Complete or Cancel selected Outlet.");
+		 $("#savedVisitRecordError").html("Please Complete or Cancel ongoing work.");
 	}
 	else{
 		$("#login_image_saved").show();
