@@ -3783,176 +3783,210 @@ function savedVisit(){
 }
 
 function submi_saved_req(i){
-	$("#login_image_saved").show();
-	$("#savedVisitRecord").hide();
-	var submit_data=$("#saved_text_"+i).val();
-	
-	submit_dataList=submit_data.split('&')
-	
-	var route=submit_dataList[4].replace('route=','')
-	var routeEx=submit_dataList[5].replace('routeEx=','')
-	var outlet=submit_dataList[6].replace('outlet=','')
-	var selected_date=submit_dataList[7].replace('scheduleDate=','')
-	var outletEx=submit_dataList[8].replace('outletEx=','')
-	
-	
-	var channel=submit_dataList[9].replace('channel=','')
-	var latlong=submit_dataList[10].replace('latlong=','')
-	var visitDate=submit_dataList[11].replace('visitDate=','')
-	var startTime=submit_dataList[12].replace('startTime=','')
-	var endTime=submit_dataList[13].replace('endTime=','')
-	var giftImage=submit_dataList[14].replace('giftImage=','')
-	var mhskus_data=submit_dataList[15].replace('mhskus_data=','')
-	var npd_data=submit_dataList[16].replace('npd_data=','')
-	var fdisplay_data=submit_dataList[17].replace('fdisplay_data=','')
-	var qpds_data=submit_dataList[18].replace('qpds_data=','')
-	var gift_data=submit_dataList[19].replace('gift_data=','')
-	var place_data=submit_dataList[20].replace('place_data=','')
-	var shop_data=submit_dataList[21].replace('shop_data=','')
-	var key_data=submit_dataList[22].replace('key_data=','')
-	
-	var fdisplayTotal=submit_dataList[23].replace('fdisplayTotal=','')
-	var qpdsSlabTotal=submit_dataList[24].replace('qpdsSlabTotal=','')
-	
-	localStorage.selectedRoute = route
-	localStorage.routeException = routeEx
-	localStorage.selectedOutlet = outlet
-	localStorage.outletException  = outletEx
-	localStorage.outletChannel = channel
-	localStorage.mhskus_data_ready = mhskus_data
-	localStorage.npd_data_ready = npd_data
-	localStorage.fdisplay_data_ready = fdisplay_data
-	localStorage.qpds_data_ready = qpds_data
-	localStorage.gift_data_ready = gift_data
-	localStorage.place_data_ready = place_data
-	localStorage.shop_data_ready = shop_data
-	localStorage.key_data_ready=key_data
-	localStorage.fdisplayTotal = fdisplayTotal
-	localStorage.qpdsSlabTotal = qpdsSlabTotal
-	
-	
-	
-	
-	
-	
-	var fdisplay_data=localStorage.fdisplay_data_ready.replace('detaildetail','')
-	var qpds_data=localStorage.qpds_data_ready.replace('detaildetail','')
-	
-	
-	
-
-	
-	var url_submit = apipath+'syncSubmitData?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&route='+localStorage.selectedRoute+'&routeEx='+localStorage.routeException+'&outlet='+localStorage.selectedOutlet+'&scheduleDate='+ localStorage.selected_date +'&outletEx='+localStorage.outletException+'&channel='+localStorage.outletChannel+'&latlong='+latlong+'&visitDate='+visitDate+'&startTime='+startTime+'&endTime='+endTime+'&giftImage='+giftImage+'&mhskus_data='+localStorage.mhskus_data_ready+'&npd_data='+localStorage.npd_data_ready+'&fdisplay_data='+fdisplay_data+'&qpds_data='+qpds_data+'&gift_data='+localStorage.gift_data_ready+'&place_data='+localStorage.place_data_ready+'&shop_data='+localStorage.shop_data_ready+'&key_data='+localStorage.key_data_ready
-	
-
-		   
-	//localStorage.selectedOutlet=selectedOutlet;				
-	//localStorage.selected_date_get=selected_date;
-	//alert (localStorage.selected_date_get)
-	//selected_date=selected_date_get;
-	//localStorage.selected_date=selected_date;	
-	
-
-	//alert ('/'+localStorage.selectedOutlet+'rdrd'+localStorage.selected_date+'/');
-	//select_outlet_saved('/'+localStorage.selectedOutlet+'rdrd'+localStorage.selected_date+'/');
-	//=============================================
+	if (localStorage.selectedOutlet!=''){
+		 $("#savedVisitRecordError").html("Please Complete or Cancel selected Outlet.");
+	}
+	else{
+		$("#login_image_saved").show();
+		$("#savedVisitRecord").hide();
+		var submit_data=$("#saved_text_"+i).val();
+		
+		submit_dataList=submit_data.split('&')
+		
+		var route=submit_dataList[4].replace('route=','')
+		var routeEx=submit_dataList[5].replace('routeEx=','')
+		var outlet=submit_dataList[6].replace('outlet=','')
+		var selected_date=submit_dataList[7].replace('scheduleDate=','')
+		var outletEx=submit_dataList[8].replace('outletEx=','')
+		
+		
+		var channel=submit_dataList[9].replace('channel=','')
+		var latlong=submit_dataList[10].replace('latlong=','')
+		var visitDate=submit_dataList[11].replace('visitDate=','')
+		var startTime=submit_dataList[12].replace('startTime=','')
+		var endTime=submit_dataList[13].replace('endTime=','')
+		var giftImage=submit_dataList[14].replace('giftImage=','')
+		var mhskus_data=submit_dataList[15].replace('mhskus_data=','')
+		var npd_data=submit_dataList[16].replace('npd_data=','')
+		var fdisplay_data=submit_dataList[17].replace('fdisplay_data=','')
+		var qpds_data=submit_dataList[18].replace('qpds_data=','')
+		var gift_data=submit_dataList[19].replace('gift_data=','')
+		var place_data=submit_dataList[20].replace('place_data=','')
+		var shop_data=submit_dataList[21].replace('shop_data=','')
+		var key_data=submit_dataList[22].replace('key_data=','')
+		
+		var fdisplayTotal=submit_dataList[23].replace('fdisplayTotal=','')
+		var qpdsSlabTotal=submit_dataList[24].replace('qpdsSlabTotal=','')
+		
+		localStorage.selectedRoute = route
+		localStorage.routeException = routeEx
+		localStorage.selectedOutlet = outlet
+		localStorage.outletException  = outletEx
+		localStorage.outletChannel = channel
+		localStorage.mhskus_data_ready = mhskus_data
+		localStorage.npd_data_ready = npd_data
+		localStorage.fdisplay_data_ready = fdisplay_data
+		localStorage.qpds_data_ready = qpds_data
+		localStorage.gift_data_ready = gift_data
+		localStorage.place_data_ready = place_data
+		localStorage.shop_data_ready = shop_data
+		localStorage.key_data_ready=key_data
+		localStorage.fdisplayTotal = fdisplayTotal
+		localStorage.qpdsSlabTotal = qpdsSlabTotal
+		
+		
+		
+		
+		
+		
+		var fdisplay_data=localStorage.fdisplay_data_ready.replace('detaildetail','')
+		var qpds_data=localStorage.qpds_data_ready.replace('detaildetail','')
+		
+		
 		
 	
 		
-	//=====================================
+		var url_submit = apipath+'syncSubmitData?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&route='+localStorage.selectedRoute+'&routeEx='+localStorage.routeException+'&outlet='+localStorage.selectedOutlet+'&scheduleDate='+ localStorage.selected_date +'&outletEx='+localStorage.outletException+'&channel='+localStorage.outletChannel+'&latlong='+latlong+'&visitDate='+visitDate+'&startTime='+startTime+'&endTime='+endTime+'&giftImage='+giftImage+'&mhskus_data='+localStorage.mhskus_data_ready+'&npd_data='+localStorage.npd_data_ready+'&fdisplay_data='+fdisplay_data+'&qpds_data='+qpds_data+'&gift_data='+localStorage.gift_data_ready+'&place_data='+localStorage.place_data_ready+'&shop_data='+localStorage.shop_data_ready+'&key_data='+localStorage.key_data_ready
+		
 	
+			   
+		//localStorage.selectedOutlet=selectedOutlet;				
+		//localStorage.selected_date_get=selected_date;
+		//alert (localStorage.selected_date_get)
+		//selected_date=selected_date_get;
+		//localStorage.selected_date=selected_date;	
+		
 	
-	//localStorage.show_cancel==1
-//	div_change()
-//	var url = "#outletPage";
-//	$.mobile.navigate(url);
-//	locatio.reload();
-	
-	//$("#savedVisitRecordError").html(url_submit);
-	$.ajax({
-			type: 'POST',
-			url: url_submit,
-			 success: function(result) {	
-					//alert (result)
-					if (result==''){
-						alert ('Sorry Network not available');
-					}
-					else{
-						///alert ('1')
-						if (result!='SUCCESS'){
-							 $("#login_image_saved").hide();
-							 $("#savedVisitRecord").show();
-						     $("#savedVisitRecordError").html("Please try later");
+		//alert ('/'+localStorage.selectedOutlet+'rdrd'+localStorage.selected_date+'/');
+		//select_outlet_saved('/'+localStorage.selectedOutlet+'rdrd'+localStorage.selected_date+'/');
+		//=============================================
+			
+		
+			
+		//=====================================
+		
+		
+		//localStorage.show_cancel==1
+	//	div_change()
+	//	var url = "#outletPage";
+	//	$.mobile.navigate(url);
+	//	locatio.reload();
+		
+		//$("#savedVisitRecordError").html(url_submit);
+		$.ajax({
+				type: 'POST',
+				url: url_submit,
+				 success: function(result) {	
+						//alert (result)
+						if (result==''){
+							alert ('Sorry Network not available');
 						}
-						if (result=='SUCCESS'){
-
-							var check_outlet= localStorage.outletString;
+						else{
+							///alert ('1')
+							if (result!='SUCCESS'){
+								 $("#login_image_saved").hide();
+								 $("#savedVisitRecord").show();
+								 $("#savedVisitRecordError").html("Please try later");
+								localStorage.routeException = ''
+								localStorage.selectedOutlet = ''
+								localStorage.outletException  = ''
+								localStorage.outletChannel = ''
+								localStorage.mhskus_data_ready = ''
+								localStorage.npd_data_ready = ''
+								localStorage.fdisplay_data_ready = ''
+								localStorage.qpds_data_ready = ''
+								localStorage.gift_data_ready = ''
+								localStorage.place_data_ready = ''
+								localStorage.shop_data_ready = ''
+								localStorage.key_data_ready=''
+								localStorage.fdisplayTotal = ''
+								localStorage.qpdsSlabTotal = ''
+							}
+							if (result=='SUCCESS'){
+	
+								var check_outlet= localStorage.outletString;
+								
+	//
+	//							localStorage.outletString=check_outlet.replace('<input type="radio" name="RadioOutlet" value="'+localStorage.selectedOutlet+'rdrd'+localStorage.selected_date_get+'">','<input type="radio" name="RadioOutlet" value="'+localStorage.selectedOutlet+'rdrd'+localStorage.selected_date_get+'" disabled="True">');
+	//							
+	//							localStorage.outletString=outletStringShow
+	//							$("#outletString").html(localStorage.outletString);
+	//							
+	//							$("#outletString").empty();
+	//							$("#outletString").append(localStorage.outletString).trigger('create');
+								
+								
+								
+								$("#savedVisitRecordError").html("Data Synced Successfully");
+								$("#submit_data").html('');
+								localStorage.step_flag=0;
+								
+								
+								// Enable disable div end
+								
+								
+								
+								
+								saved_image_upload();
+								
+								//localStorage.mhskus_data_ready = ''
+	//							localStorage.npd_data_ready = ''
+	//							localStorage.fdisplay_data_ready = ''
+	//							localStorage.qpds_data_ready = ''
+	//							localStorage.gift_data_ready = ''
+	//							localStorage.place_data_ready = ''
+	//							localStorage.shop_data_ready = ''
+	//							
+	//							localStorage.fdisplayTotal=0;
+	//							localStorage.qpdsSlabTotal=0;
+	//							
+	//							
+								var saved_req=localStorage.saved_req
+								
+								var s_data=saved_req.split('<savedsaved>')[i]
+								
+								saved_req=saved_req.replace('<savedsaved>'+s_data,'')
+								localStorage.saved_req=saved_req
+								
+								
+	
+								
+								savedVisit();
+								
+								
+								
+								//location.reload();
+								// $("#savedVisitRecordError").html("Please try later");
+								
+							}
 							
-//
-//							localStorage.outletString=check_outlet.replace('<input type="radio" name="RadioOutlet" value="'+localStorage.selectedOutlet+'rdrd'+localStorage.selected_date_get+'">','<input type="radio" name="RadioOutlet" value="'+localStorage.selectedOutlet+'rdrd'+localStorage.selected_date_get+'" disabled="True">');
-//							
-//							localStorage.outletString=outletStringShow
-//							$("#outletString").html(localStorage.outletString);
-//							
-//							$("#outletString").empty();
-//							$("#outletString").append(localStorage.outletString).trigger('create');
-							
-							
-							
-							$("#savedVisitRecordError").html("Data Synced Successfully");
-							$("#submit_data").html('');
-							localStorage.step_flag=0;
-							
-							
-							// Enable disable div end
-							
-							
-							
-							
-							saved_image_upload();
-							
-							//localStorage.mhskus_data_ready = ''
-//							localStorage.npd_data_ready = ''
-//							localStorage.fdisplay_data_ready = ''
-//							localStorage.qpds_data_ready = ''
-//							localStorage.gift_data_ready = ''
-//							localStorage.place_data_ready = ''
-//							localStorage.shop_data_ready = ''
-//							
-//							localStorage.fdisplayTotal=0;
-//							localStorage.qpdsSlabTotal=0;
-//							
-//							
-							var saved_req=localStorage.saved_req
-							
-							var s_data=saved_req.split('<savedsaved>')[i]
-							
-							saved_req=saved_req.replace('<savedsaved>'+s_data,'')
-							localStorage.saved_req=saved_req
-							
-							
-
-							
-							savedVisit();
-							
-							
-							
-							//location.reload();
-							// $("#savedVisitRecordError").html("Please try later");
-							
+									
 						}
 						
-								
-					}
-					
-				  }, 
-			  error: function(result) {
-				     $("#login_image_saved").hide();
-					 $("#savedVisitRecord").show();
-					 $("#savedVisitRecordError").html("Please try later");
-			  }
-		  });//end ajax
-
+					  }, 
+				  error: function(result) {
+						 $("#login_image_saved").hide();
+						 $("#savedVisitRecord").show();
+						 $("#savedVisitRecordError").html("Please try later");
+						//localStorage.selectedRoute = ''
+						localStorage.routeException = ''
+						localStorage.selectedOutlet = ''
+						localStorage.outletException  = ''
+						localStorage.outletChannel = ''
+						localStorage.mhskus_data_ready = ''
+						localStorage.npd_data_ready = ''
+						localStorage.fdisplay_data_ready = ''
+						localStorage.qpds_data_ready = ''
+						localStorage.gift_data_ready = ''
+						localStorage.place_data_ready = ''
+						localStorage.shop_data_ready = ''
+						localStorage.key_data_ready=''
+						localStorage.fdisplayTotal = ''
+						localStorage.qpdsSlabTotal = ''
+				  }
+			  });//end ajax
+	}
+	
 }
 
 //===================Upload saved image=====
