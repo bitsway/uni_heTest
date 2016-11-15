@@ -2918,7 +2918,7 @@ function submit_data() {
 							 localStorage.submit_count=parseInt(localStorage.submit_count)+1
 							 
 							
-							 if (localStorage.submit_count<3){
+							 if (localStorage.submit_count<1){
 								 buttonCheck();
 								 $("#submit_data").html('');
 								 var url = "#submitPage";
