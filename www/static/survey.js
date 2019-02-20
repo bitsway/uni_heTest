@@ -128,7 +128,8 @@ function outlet_next_page(){
 			}
 			else{
 					if (localStorage.fdSkip==0){
-					var url = "#fdbeforePage";
+						var url = "#fixedDisplay";
+					//var url = "#fdbeforePage";
 					$.mobile.navigate(url);
 					  $('#shop_show').find('input, textarea, button, select').attr('disabled','disabled');
 					  $('#shop_show').addClass('disabledAnchor');
@@ -482,7 +483,7 @@ function check_user() {
    		
 		
 	//$("#error_login").html(apipath+'check_user?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode);	
-	alert (apipath+'check_user?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode)
+	//alert (apipath+'check_user?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode)
    		$.ajax({
 				 type: 'POST',
 				 url: apipath+'check_user?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode,
@@ -1386,7 +1387,8 @@ function selectOutletException() {
 		localStorage.outletException=selected_outlet_exception;
 		
 		if (localStorage.fdSkip==0){
-		var url = "#fdbeforePage";
+		//var url = "#fdbeforePage";
+		var url = "#fixedDisplay";
 		$.mobile.navigate(url);
 		
 		}
@@ -2030,7 +2032,8 @@ function fdisplay_before_page_next() {
 
 	}
 	else{
-		var url = "#fdbeforePage";
+		var url = "#fixedDisplay";
+		//var url = "#fdbeforePage";
 		$.mobile.navigate(url);
 	}
 
